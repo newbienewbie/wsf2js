@@ -17,8 +17,10 @@ const CWD=process.cwd();
 const wsf_path=path.resolve(CWD,wsf_path_value);
 const out_path=path.resolve(CWD,out_path_value);
 
-console.log(`\r\nthe wsf-like file is ${wsf_path_value}`);
-console.log(`\r\nthe output file is ${out_path_value}`);
+console.log(`\r\n`);
+console.log(`the wsf-like file is:\t${wsf_path}`);
+console.log(`the output file is :\t${out_path}`);
+console.log(`\r\n`);
 
 fs.access(out_path,(err)=>{
     if(!err){
@@ -37,7 +39,9 @@ fs.access(out_path,(err)=>{
             let {overwrite}=result;
             if(overwrite){
                 fs.unlinkSync(out_path);
-                return compile(wsf_path,out_path);
+                compile(wsf_path,out_path);
+                console.log(`done!`);
+                return;
             }else {
                 console.info(`bye!`);
                 return;
@@ -45,7 +49,9 @@ fs.access(out_path,(err)=>{
         });
         return;
     }else{
-        return compile(wsf_path,out_path);
+        console.log(`done!`);
+        compile(wsf_path,out_path);
+        return;
     }
 });
 

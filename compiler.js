@@ -51,7 +51,7 @@ function mergeScripts(scripts,out_path){
             const content=fs.readFileSync(s.src);
             fs.appendFileSync(out_path, content);
         }else{
-            console.log(`write src to output file ...`);
+            console.log(`write script to output file ...`);
             fs.appendFileSync(out_path,s.content);
         }
     });
