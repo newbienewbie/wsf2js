@@ -1,0 +1,23 @@
+<package>
+    <job id="js">
+        <script language="JScript" src="./polyfill.js"></script>
+        <script language="JScript" src="./json.js"></script>
+        <script language="JScript" src="./ajax.js"></script>
+        <script language="JScript">
+        </script>
+        <script language="JScript">
+            var url="http://www.itminus.com/css/images/banner.jpg";
+            var data={x:1,"s":'x'};
+            ajax.get(url,data,{})
+                .then(function(xhr){
+                    var stream=WScript.CreateObject("ADODB.Stream");
+                    stream.Open();
+                    stream.Type = 1;
+                    stream.Write(xhr.ResponseBody);
+                    stream.SaveToFile("G:/banner.jpg", 2);
+                    stream.Close();
+                });
+            WScript.Echo(JSON.stringify(data));
+        </script>
+    </job>
+</package>
