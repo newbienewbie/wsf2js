@@ -1,6 +1,6 @@
 {
-  "name": "combie-wsf-to-single-js",
-  "version": "1.0.0",
+  "name": "wsf2js",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "bin":{

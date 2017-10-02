@@ -6,14 +6,19 @@ var commander = require('commander');
 const {compile}=require('./compiler');
 
 commander.usage('<wsf_path> <out_path>')
-    .option('-w, --wsf_path <path>','wsf-like file path')
-    .option('-o, --out_path <path>','output file path')
+    .arguments('[wsf_path] [out_path]')
+    .action(function(wsf_path,out_path){
+        wsf_path_value=wsf_path;
+        out_path_value=out_path;
+    })
     .parse(process.argv)
     ;
 
+const wsf_path=path.resolve(__dirname,wsf_path_value);
+const out_path=path.resolve(__dirname,out_path_value);
 
-const wsf_path=path.resolve(__dirname,commander.wsf_path);
-const out_path=path.resolve(__dirname,commander.out_path);
+console.log(`\r\nthe wsf-like file is ${wsf_path_value}`);
+console.log(`\r\nthe output file is ${out_path_value}`);
 
 fs.access(out_path,(err)=>{
     if(!err){
