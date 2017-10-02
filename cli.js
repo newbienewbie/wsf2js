@@ -13,9 +13,9 @@ commander.usage('<wsf_path> <out_path>')
     })
     .parse(process.argv)
     ;
-
-const wsf_path=path.resolve(__dirname,wsf_path_value);
-const out_path=path.resolve(__dirname,out_path_value);
+const CWD=process.cwd();
+const wsf_path=path.resolve(CWD,wsf_path_value);
+const out_path=path.resolve(CWD,out_path_value);
 
 console.log(`\r\nthe wsf-like file is ${wsf_path_value}`);
 console.log(`\r\nthe output file is ${out_path_value}`);
